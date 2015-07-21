@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Child = require('./Child');
+var SayHello = require('./SayHello');
+var FriendsContainer = require('./FriendsContainer');
 
 var Parent = React.createClass({
   render: function(){
     return (
-      <div>
-        <div> This is the parent. </div>
-        <Child name="child"/>
+      <div class="parent-box">
+        <SayHello name="child"/>
+        <FriendsContainer name="friends"/>
       </div>
     )
   }

@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
 var React = require('react');
-var Parent = require('./Parent');
+var Parent = require('./components/Parent');
 
 React.render(<Parent/>, document.body);

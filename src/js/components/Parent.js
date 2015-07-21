@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
-var SayHello = require('./SayHello');
-var FriendsContainer = require('./FriendsContainer');
+var SayHello = require('../components/SayHello');
+var FriendsContainer = require('../components/FriendsContainer');
 
 var Parent = React.createClass({
   render: function(){

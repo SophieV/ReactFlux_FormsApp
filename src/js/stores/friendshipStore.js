@@ -6,15 +6,23 @@ var EventEmitter = require('events').EventEmitter;
 var CHANGE_EVENT = 'change';
 
 var _store = {
-  list: []
+  list: [],
+  username: ''
 };
 
 var addFriend = function(item){
   _store.list.push(item);
 };
 
-var removeFriend = function(index){
-  _store.list.splice(index, 1);
+var removeFriend = function(friend){
+  var items = _store.list.filter(function(item){
+       return item !== friend;
+  });
+  _store.list = items;
+}
+
+var updateUsername = function(item){
+  _store.username = item;
 }
 
 var friendshipStore = objectAssign({}, EventEmitter.prototype, {
@@ -27,6 +35,9 @@ var friendshipStore = objectAssign({}, EventEmitter.prototype, {
   getList: function(){
     return _store.list;
   },
+  getUsername: function(){
+    return _store.username;
+  }
 });
 
 AppDispatcher.register(function(payload){
@@ -40,6 +51,10 @@ AppDispatcher.register(function(payload){
       removeFriend(action.data);
       friendshipStore.emit(CHANGE_EVENT);
       break;
+    case actionsConstants.UPDATE_USERNAME:
+      updateUsername(action.data);
+      friendshipStore.emit(CHANGE_EVENT);
+    break;
     default:
       return true;
   }

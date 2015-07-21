@@ -8,10 +8,16 @@ var friendshipActions = {
       data: item
     });
   },
-  removeFriend: function(index){
+  removeFriend: function(item){
     AppDispatcher.handleAction({
       actionType: actionsConstants.REMOVE_ITEM,
-      data: index
+      data: item
+    })
+  },
+  updateUsername: function(item){
+    AppDispatcher.handleAction({
+      actionType: actionsConstants.UPDATE_USERNAME,
+      data: item
     })
   }
 };

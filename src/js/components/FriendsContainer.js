@@ -9,7 +9,7 @@ var friendshipActions = require('../actions/friendshipActions');
 var FriendsContainer = React.createClass({
   getInitialState: function(){
     return {
-      name: 'Tyler McGinnis',
+      username: friendshipStore.getUsername(), //'Tyler McGinnis',
       friends: friendshipStore.getList() // ['Jake Lingwall', 'Murphy Randall', 'Merrick Christensen']
     }
   },
@@ -22,13 +22,14 @@ var FriendsContainer = React.createClass({
   handleAddFriend: function(newItem){
     friendshipActions.addFriend(newItem);
   },
-  handleRemoveFriend: function(index){
-    friendshipActions.removeFriend(index);
+  handleRemoveFriend: function(item){
+    friendshipActions.removeFriend(item);
   },
   _onChange: function(){
     this.setState({
-      friends: friendshipStore.getList()
-    })
+      friends: friendshipStore.getList(),
+      username: friendshipStore.getUsername()
+    });
   },
   // addFriend: function(friend){
   //   this.setState({
@@ -47,7 +48,7 @@ var FriendsContainer = React.createClass({
   render: function(){
     return (
       <div>
-        <h3> Name: {this.state.name} </h3>
+        <h3> Name: {this.state.username} </h3>
         <AddFriend addNew={this.handleAddFriend} />
         <ShowList friendsNames={this.state.friends} removeOld={this.handleRemoveFriend} />
       </div>

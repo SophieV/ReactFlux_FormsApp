@@ -6,7 +6,8 @@ var React = require('react'),
     FriendsContainer = require('../components/FriendsContainer'),
     SayHello = require('../components/SayHello'),
     routesConstants = require('../constants/routesConstants'),
-    authenticationService = require('../services/authenticationService');
+    authenticationService = require('../services/authenticationService'),
+    Button = require('react-bootstrap/lib/Button');
 
 var MainContainer = React.createClass({
 
@@ -31,8 +32,8 @@ var MainContainer = React.createClass({
     var username = authenticationService.getUsername();
 
     var displayLoginOrLogout = this.state.loggedIn ?
-      <div>Hey, <b>{username}</b> ! <Link to={routesConstants.LOGOUT}>Log out</Link></div> :
-      <Link to={routesConstants.LOGIN}>Sign in</Link>;
+      <div>Hey, <b>{username}</b> ! <Button bsStyle='primary' bsSize='large'><Link to={routesConstants.LOGOUT}>Log out</Link></Button></div> :
+      <Button bsStyle='primary' bsSize='large'><Link to={routesConstants.LOGIN}>Sign in</Link></Button>;
 
     return (
       <div>

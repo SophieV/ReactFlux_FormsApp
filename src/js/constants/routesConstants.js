@@ -4,7 +4,7 @@ var routesConstants = {
   ROOT: siteDir,
   HOME_PUBLIC: siteDir + "publicHome",
   HOME_PRIVATE: siteDir + "privateHome",
-  LOGIN: siteDir + "login",
+  LOGIN: siteDir + "loginRequest",
   LOGOUT: siteDir + "logout"
 };
 

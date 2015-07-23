@@ -1,10 +1,10 @@
 var React = require('react'),
-	  RedirectToLogIn = require('../mixins/redirect_to_log_in'),
+	  RedirectToLogInMixin = require('../mixins/redirect_to_log_in'),
 	  authenticationService = require('../services/authenticationService');
 
 var PrivateHome = React.createClass({
 
-  mixins: [RedirectToLogIn],
+  mixins: [RedirectToLogInMixin],
 
   render: function () {
     return (

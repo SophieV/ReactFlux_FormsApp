@@ -1,6 +1,6 @@
 var React = require('react'),
     Router = require('react-router'),
-    Login = require('./components/Login'),
+    LoginRequest = require('./components/LoginRequest'),
     Logout = require('./components/Logout'),
     PrivateHome = require('./components/PrivateHome'),
     PublicHome = require('./components/PublicHome'),
@@ -13,7 +13,7 @@ var React = require('react'),
 
 var routes = (
   <Route handler={MainContainer} path={routesConstants.ROOT}>
-    <Route name={routesConstants.LOGIN} handler={Login}/>
+    <Route name={routesConstants.LOGIN} handler={LoginRequest}/>
     <Route name={routesConstants.LOGOUT} handler={Logout}/>
     <Route name={routesConstants.HOME_PRIVATE} handler={PrivateHome}/>
     <DefaultRoute handler={PublicHome}/>

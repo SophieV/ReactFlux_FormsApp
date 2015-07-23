@@ -2,7 +2,7 @@ var authenticationService = require('../services/authenticationService'),
     Login = require('../components/Login'),
     routesConstants = require('../constants/routesConstants');
 
-var RedirectToLogIn = {
+var RedirectToLogInMixin = {
   statics: {
     willTransitionTo: function (transition) {
       if (!authenticationService.loggedIn()) {
@@ -13,4 +13,4 @@ var RedirectToLogIn = {
   }
 };
 
-module.exports = RedirectToLogIn;
+module.exports = RedirectToLogInMixin;

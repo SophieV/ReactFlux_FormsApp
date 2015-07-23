@@ -24,7 +24,10 @@
     "flux": "^2.0.3",
     "react": "^0.13.3",
     "react-bootstrap": "^0.24.0",
+    "react-bootstrap-datetimepicker": "0.0.18",
     "react-router": "^0.13.3",
+    "tcomb-form": "^0.6.3",
+    "tcomb-validation": "^2.0.0",
     "underscore": "^1.8.3"
   }
 }

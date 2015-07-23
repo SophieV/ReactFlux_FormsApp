@@ -1,6 +1,7 @@
 var React = require('react'),
     FriendsContainer = require('../components/FriendsContainer'),
     SayHello = require('../components/SayHello'),
+    MyForm = require('../components/MyForm'),
     Navigation = require('../components/Navigation'),
     Button = require('react-bootstrap/lib/Button');
 

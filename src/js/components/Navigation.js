@@ -38,6 +38,7 @@ var Navigation = React.createClass({
         <div>
           <ul>
             <li>{displayLoginOrLogout}</li>
+            <li><Link to={routesConstants.SOMETHING}>My Other Area</Link></li>
             <li><Link to={routesConstants.HOME_PRIVATE}>My Private Area</Link></li>
           </ul>
           <RouteHandler/>

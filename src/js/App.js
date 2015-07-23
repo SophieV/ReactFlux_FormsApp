@@ -5,6 +5,7 @@ var React = require('react'),
     PrivateHome = require('./components/PrivateHome'),
     PublicHome = require('./components/PublicHome'),
     MainContainer = require('./components/MainContainer'),
+    MyForm = require('./components/MyForm'),
     RouteHandler = Router.RouteHandler,
     Route = Router.Route,
     Link = Router.Link,
@@ -16,6 +17,7 @@ var routes = (
     <Route name={routesConstants.LOGIN} handler={LoginRequest}/>
     <Route name={routesConstants.LOGOUT} handler={Logout}/>
     <Route name={routesConstants.HOME_PRIVATE} handler={PrivateHome}/>
+    <Route name={routesConstants.SOMETHING} handler={MyForm}/>
     <DefaultRoute handler={PublicHome}/>
   </Route>
 );

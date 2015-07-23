@@ -5,7 +5,8 @@ var routesConstants = {
   HOME_PUBLIC: siteDir + "publicHome",
   HOME_PRIVATE: siteDir + "privateHome",
   LOGIN: siteDir + "loginRequest",
-  LOGOUT: siteDir + "logout"
+  LOGOUT: siteDir + "logout",
+  SOMETHING: siteDir + "myForm"
 };
 
 module.exports = routesConstants;

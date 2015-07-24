@@ -1,7 +1,8 @@
-var React    = require('react');
-var t = require('tcomb-form');
-var DatePicker = require('react-date-picker');
-var Form = t.form.Form;
+var React = require('react'),
+    t = require('tcomb-form'),
+    DatePicker = require('react-date-picker'),
+    Form = t.form.Form,
+    Button = require('react-bootstrap/lib/Button');
 
 var date = Date.now();
 
@@ -63,7 +64,7 @@ var MyForm = React.createClass({
           ref="form"
           type={Children} options={options}
         />
-        <button onClick={this.save}>Save</button>
+        <Button onClick={this.save}>Save</Button>
         <DatePicker
             className="form-box"
             minDate='2014-04-04'

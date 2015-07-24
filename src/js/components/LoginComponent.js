@@ -6,13 +6,35 @@ var React = require('react'),
     RouteHandler = Router.RouteHandler,
     Route = Router.Route,
     Link = Router.Link,
-    Popover = require('react-bootstrap/lib/Popover'),
-    Tooltip = require('react-bootstrap/lib/Tooltip'),
     Button = require('react-bootstrap/lib/Button'),
-    OverlayTrigger = require('react-bootstrap/lib/OverlayTrigger')
-    Modal = require('react-bootstrap/lib/Modal');
+    Modal = require('react-bootstrap/lib/Modal'),
+    t = require('tcomb-form'),
+    Form = t.form.Form;
 
-var Login = React.createClass({
+var UserCredentials = t.struct({
+  username: t.Str,
+  password: t.Str
+});
+
+var options = {
+  legend: 'Log In to our Awesome Site',
+  fields: {
+      username: {
+        config: {
+          addonBefore: 'joe@example.com',
+          placeholder: 'Enter your email'
+        }
+      },
+      password: {
+        type: 'password',
+        config: {
+          addonBefore: 'password1'
+        }
+      }
+  }
+};
+
+var LoginComponent = React.createClass({
 
   mixins: [Router.Navigation, RedirectWhenLoggedIn],
 
@@ -41,48 +63,44 @@ var Login = React.createClass({
     this.setState({ showModal: true });
   },
 
-  handleSubmit: function (event) {
-    event.preventDefault();
+  save: function() {
+    var value = this.refs.form.getValue();
 
-    var email = this.refs.email.getDOMNode().value;
-    var pass = this.refs.pass.getDOMNode().value;
-    
-    authenticationService.login(email, pass, function (loggedIn) {
+    if (value && value.username && value.password) {
+      console.log(value);
+
+      authenticationService.login(value.username, value.password, function (loggedIn) {
       if (!loggedIn)
         return this.setState({ error: true });
-      if (Login.attemptedTransition) {
-        var transition = Login.attemptedTransition;
-        Login.attemptedTransition = null;
+      if (LoginComponent.attemptedTransition) {
+        var transition = LoginComponent.attemptedTransition;
+        LoginComponent.attemptedTransition = null;
         transition.retry();
       } else {
         this.replaceWith(routesConstants.HOME_PRIVATE); // jump after login
       }
     }.bind(this));
+
+    }
   },
 
   render: function () {
-    var popover = <Popover title='popover'>very popover. such engagement</Popover>;
-    var tooltip = <Tooltip>wow.</Tooltip>;
-    var errors = this.state.error ? <p>Bad login information</p> : '';
+    var errors = this.state.error ? <p>Bad login information. Try again !</p> : '';
+
     return (
       <div className="form-box">
         <Button bsStyle='primary' bsSize='large' onClick={this.open}>Log In</Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Log In</Modal.Title>
+            <Modal.Title>Hey, Do We Know You ?</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                <input ref="email" placeholder="email" defaultValue="joe@example.com"/>
-              </label>
-              <label>
-                <input ref="pass" placeholder="password"/>
-              </label> (hint: password1)
-              <br/>
-              <button type="submit">login</button>
-              {errors}
-            </form>
+            <Form
+              ref="form"
+              type={UserCredentials} options={options}
+            />
+            <Button onClick={this.save}>Log In</Button>
+            {errors}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Close</Button>
@@ -93,4 +111,4 @@ var Login = React.createClass({
   }
 });
 
-module.exports = Login;
+module.exports = LoginComponent;

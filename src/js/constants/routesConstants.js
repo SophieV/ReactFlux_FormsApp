@@ -1,4 +1,4 @@
-var siteDir = "/reactSandbox/dist/";
+var siteDir = ""; //with HistoryLocation : "/reactSandbox/dist/";
 
 var routesConstants = {
   ROOT: siteDir,

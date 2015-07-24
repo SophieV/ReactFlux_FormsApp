@@ -59,6 +59,7 @@ var MyForm = React.createClass({
   render: function() {
     return (
       <div>
+      <div class="form-box">
         <Form
           ref="form"
           type={Children} options={options}
@@ -70,6 +71,7 @@ var MyForm = React.createClass({
             date={date}
             onChange={this.onDateChange}
         />
+      </div>
       </div>
     );
   }

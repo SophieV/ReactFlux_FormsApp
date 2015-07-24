@@ -31,7 +31,7 @@ var Navigation = React.createClass({
     var username = authenticationService.getUsername();
 
     var displayLoginOrLogout = this.state.loggedIn ?
-      <div>Hey, <b>{username}</b> ! <Button bsStyle='primary' bsSize='large'><Link to={routesConstants.LOGOUT}>Log out</Link></Button></div> :
+      <div>Hey, <b>{username}</b> ! <Link to={routesConstants.LOGOUT}><Button bsStyle='primary' bsSize='large'>Log out</Button></Link></div> :
       <Login/>;
 
     return (

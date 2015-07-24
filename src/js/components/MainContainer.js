@@ -9,7 +9,7 @@ var MainContainer = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div id="main-container">
         <Navigation name="navbar"/>
         <br/>
         <br/>

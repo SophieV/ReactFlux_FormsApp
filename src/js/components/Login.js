@@ -65,7 +65,7 @@ var Login = React.createClass({
     var tooltip = <Tooltip>wow.</Tooltip>;
     var errors = this.state.error ? <p>Bad login information</p> : '';
     return (
-      <div>
+      <div className="form-box">
         <Button bsStyle='primary' bsSize='large' onClick={this.open}>Log In</Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>

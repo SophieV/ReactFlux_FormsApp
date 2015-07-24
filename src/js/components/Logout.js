@@ -16,7 +16,9 @@ var Logout = React.createClass({
     authenticationService.logout();
   },
   render: function () {
-    return <p>You are now logged out</p>;
+    return <div className="form-box">
+              <p>You are now logged out</p>
+          </div>;
   }
 });
 

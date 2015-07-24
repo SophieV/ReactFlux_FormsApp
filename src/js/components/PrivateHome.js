@@ -8,7 +8,7 @@ var PrivateHome = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="form-box">
         <p>Welcome home !</p>
       </div>
     );

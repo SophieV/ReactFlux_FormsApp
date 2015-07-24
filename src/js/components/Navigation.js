@@ -35,7 +35,7 @@ var Navigation = React.createClass({
       <Login/>;
 
     return (
-        <div>
+        <div className="form-box">
           <ul>
             <li>{displayLoginOrLogout}</li>
             <li><Link to={routesConstants.SOMETHING}>My Other Area</Link></li>

@@ -31,7 +31,7 @@ var SayHello = React.createClass({
   // },
   render: function(){
     return (
-      <div>
+      <div className="form-box">
         Hello <b>{this.state.username}</b><br />
         Change Name: <input type="text" value={this.state.username} onChange={this.handleUpdateUsername} />
       </div>

@@ -47,7 +47,7 @@ var FriendsContainer = React.createClass({
   // },
   render: function(){
     return (
-      <div>
+      <div className="form-box">
         <h3> Name: {this.state.username} </h3>
         <AddFriend addNew={this.handleAddFriend} />
         <ShowList friendsNames={this.state.friends} removeOld={this.handleRemoveFriend} />

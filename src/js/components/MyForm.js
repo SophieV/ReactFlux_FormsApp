@@ -59,13 +59,14 @@ var MyForm = React.createClass({
   render: function() {
     return (
       <div>
-      <div class="form-box">
+      <div className="form-box">
         <Form
           ref="form"
           type={Children} options={options}
         />
         <button onClick={this.save}>Save</button>
         <DatePicker
+            className="form-box"
             minDate='2014-04-04'
             maxDate='2015-10-10'
             date={date}

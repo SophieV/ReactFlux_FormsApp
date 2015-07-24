@@ -7,7 +7,7 @@ var PublicHome = React.createClass({
 
   render: function () {
     return (
-	  <div>
+	  <div className="form-box">
         Hello Stranger - you are seeing this because you are not logged in
       </div>
     );

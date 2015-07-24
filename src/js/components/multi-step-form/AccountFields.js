@@ -1,4 +1,4 @@
-var React = require('react')
+var React = require('react');
 
 var AccountFields = React.createClass({
   render: function() {

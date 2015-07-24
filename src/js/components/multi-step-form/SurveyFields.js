@@ -1,5 +1,4 @@
-var React                   = require('react')
-var getRadioOrCheckboxValue = require('../lib/radiobox-value')
+var React = require('react');
 
 var SurveyFields = React.createClass({
 
@@ -47,12 +46,26 @@ var SurveyFields = React.createClass({
     var colors = document.querySelectorAll('input[name="colors"]')
 
     var data = {
-      age    : getRadioOrCheckboxValue(age),
-      colors : getRadioOrCheckboxValue(colors)
+      age    : this.getValuesFromRadioOrCheckboxGroup(age),
+      colors : this.getValuesFromRadioOrCheckboxGroup(colors)
     }
 
     this.props.saveValues(data)
     this.props.nextStep()
+  },
+
+  getValuesFromRadioOrCheckboxGroup: function(element){
+      var values = []
+
+      if (!element) return null
+
+      if (typeof element.length == 'undefined') return element.checked ? element.value : null
+
+      for (var i = 0; i < element.length; i++) {
+        element[i].checked && values.push(element[i].value)
+      }
+
+      return values;
   }
 })
 

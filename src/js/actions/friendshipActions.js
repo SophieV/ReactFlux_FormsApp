@@ -13,12 +13,6 @@ var friendshipActions = {
       actionType: actionsConstants.REMOVE_ITEM,
       data: item
     })
-  },
-  updateUsername: function(item){
-    AppDispatcher.handleAction({
-      actionType: actionsConstants.UPDATE_USERNAME,
-      data: item
-    })
   }
 };
 

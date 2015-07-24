@@ -1,6 +1,6 @@
 var React = require('react'),
     Router = require('react-router'),
-    LoginRequest = require('./components/LoginRequest'),
+    LoginPage = require('./components/LoginPage'),
     Logout = require('./components/Logout'),
     PrivateHome = require('./components/PrivateHome'),
     PublicHome = require('./components/PublicHome'),
@@ -14,7 +14,7 @@ var React = require('react'),
 
 var routes = (
   <Route handler={MainContainer} path={routesConstants.ROOT}>
-    <Route name={routesConstants.LOGIN} handler={LoginRequest}/>
+    <Route name={routesConstants.LOGIN} handler={LoginPage}/>
     <Route name={routesConstants.LOGOUT} handler={Logout}/>
     <Route name={routesConstants.HOME_PRIVATE} handler={PrivateHome}/>
     <Route name={routesConstants.SOMETHING} handler={MyForm}/>

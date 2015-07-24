@@ -1,5 +1,5 @@
 var React = require('react'),
-    Login = require('../components/Login');
+    Login = require('./LoginComponent');
 
 var LoginRequest = React.createClass({
 

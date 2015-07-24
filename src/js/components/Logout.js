@@ -2,7 +2,7 @@ var React = require('react'),
     authenticationService = require('../services/authenticationService'),
     routesConstants = require('../constants/routesConstants');
 
-var Logout = React.createClass({
+var LogoutPage = React.createClass({
 
   statics: {
     willTransitionTo: function (transition) {
@@ -22,4 +22,4 @@ var Logout = React.createClass({
   }
 });
 
-module.exports = Logout;
+module.exports = LogoutPage;

@@ -1,8 +1,8 @@
 var React = require('react'),
-    FriendsContainer = require('../components/FriendsContainer'),
-    SayHello = require('../components/SayHello'),
+    FriendsArea = require('../components/friends-form/FriendsArea'),
+    SaySomethingArea = require('../components/SaySomethingArea'),
     MyForm = require('../components/MyForm'),
-    MultiStep = require('../components/Registration'),
+    MultiStepRegistrationForm = require('../components/multi-step-form/MultiStepRegistrationForm'),
     Navigation = require('../components/Navigation'),
     Button = require('react-bootstrap/lib/Button');
 
@@ -14,9 +14,9 @@ var MainContainer = React.createClass({
         <Navigation name="navbar"/>
         <br/>
         <br/>
-      	<SayHello name="child"/>
-        <FriendsContainer name="friends"/>
-        <MultiStep/>
+      	<SaySomethingArea name="child"/>
+        <FriendsArea name="friends"/>
+        <MultiStepRegistrationForm/>
       </div>
     );
   }

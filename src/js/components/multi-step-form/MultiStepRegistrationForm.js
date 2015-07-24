@@ -1,9 +1,9 @@
-var React         = require('react');
-var AccountFields = require('./AccountFields');
-var Confirmation  = require('./Confirmation');
-var Success       = require('./Success');
-var SurveyFields  = require('./SurveyFields');
-var assign        = require('object-assign');
+var React         = require('react'),
+    AccountFields = require('./AccountFields'),
+    Confirmation  = require('./Confirmation'),
+    Success       = require('./Success'),
+    SurveyFields  = require('./SurveyFields'),
+    assign        = require('object-assign');
 
 // Idealy, these form values would be saved in another
 // sort of persistence, like a Store via Flux pattern
@@ -15,7 +15,7 @@ var fieldValues = {
   colors   : []
 }
 
-var Registration = React.createClass({
+var RegistrationForm = React.createClass({
   getInitialState: function() {
     return {
       step : 1
@@ -84,4 +84,4 @@ var Registration = React.createClass({
   }
 })
 
-module.exports = Registration;
+module.exports = RegistrationForm;

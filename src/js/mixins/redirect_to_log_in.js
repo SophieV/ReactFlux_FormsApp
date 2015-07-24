@@ -1,5 +1,5 @@
 var authenticationService = require('../services/authenticationService'),
-    Login = require('../components/Login'),
+    Login = require('../components/LoginComponent'),
     routesConstants = require('../constants/routesConstants');
 
 var RedirectToLogInMixin = {

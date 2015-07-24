@@ -1,7 +1,9 @@
 var React    = require('react');
 var t = require('tcomb-form');
-var DateTimeField = require('react-bootstrap-datetimepicker');
+var DatePicker = require('react-date-picker');
 var Form = t.form.Form;
+
+var date = Date.now();
 
 var Gender = t.enums({
   M: 'Male',
@@ -50,6 +52,10 @@ var MyForm = React.createClass({
     }
   },
 
+  onDateChange: function(dateString, moment){
+    console.log('new date is '+ moment.format('DD/MM/YYYY'));
+  },
+
   render: function() {
     return (
       <div>
@@ -58,7 +64,12 @@ var MyForm = React.createClass({
           type={Children} options={options}
         />
         <button onClick={this.save}>Save</button>
-        <DateTimeField mode="date"/>
+        <DatePicker
+            minDate='2014-04-04'
+            maxDate='2015-10-10'
+            date={date}
+            onChange={this.onDateChange}
+        />
       </div>
     );
   }

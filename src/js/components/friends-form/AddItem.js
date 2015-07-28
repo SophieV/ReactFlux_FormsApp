@@ -1,14 +1,14 @@
-var React = require('react');
-var t = require('tcomb-form');
-var Form = t.form.Form;
+var React = require('react'),
+    t = require('tcomb-form'),
+    Form = t.form.Form;
 
-var Friend = t.struct({
-  fullName: t.Str
+var Item = t.struct({
+  name: t.Str
 });
 
 var options = {};
 
-var AddFriend = React.createClass({
+var AddItem = React.createClass({
   save: function() {
     // call getValue() to get the values of the form
     var value = this.refs.form.getValue();
@@ -16,21 +16,21 @@ var AddFriend = React.createClass({
     if (value) {
       // value here is an instance of Friend
       console.log(value);
-      this.props.addFriendRef(value);
+      this.props.addItemRef(value);
     }
   },
   render: function(){
     return (
         <div>
-          <h3>Add Friend</h3>
+          <h3>{this.props.addItemCustomTitleRef}</h3>
           <Form
             ref="form"
-            type={Friend} options={options}
+            type={Item} options={options}
           />
-          <button onClick={this.save}>Add Friend</button>
+          <button onClick={this.save}>Add</button>
         </div>
     );
   }
 });
 
-module.exports = AddFriend;
+module.exports = AddItem;

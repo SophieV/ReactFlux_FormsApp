@@ -1,6 +1,6 @@
 var React = require('react'),
     FriendsList = require('./FriendsList'),
-    AddFriend = require('./AddFriend'),
+    AddItem = require('./AddItem'),
     friendshipStore = require('../../stores/friendshipStore'),
     friendshipActions = require('../../actions/friendshipActions'),
     appStore = require('../../stores/appStore'),
@@ -41,7 +41,7 @@ var FriendsContainer = React.createClass({
     return (
       <div className="form-box">
         <p> {this.state.something?('Echoing - ' + this.state.something + ' -'):''} </p>
-        <AddFriend addFriendRef={this.handleAddFriend} />
+        <AddItem addItemRef={this.handleAddFriend} addItemCustomTitleRef="Add Friend"/>
         <FriendsList friendsNamesRef={this.state.friends} removeFriendRef={this.handleRemoveFriend} />
       </div>
     )

@@ -21,10 +21,10 @@ var FriendsContainer = React.createClass({
     friendshipStore.removeChangeListener(this._onFriendsChange);
     appStore.removeChangeListener(this._onAppChange);
   },
-  handleAddFriend: function(newItem){
+  _handleAddFriend: function(newItem){
     friendshipActions.addFriend(newItem);
   },
-  handleRemoveFriend: function(item){
+  _handleRemoveFriend: function(item){
     friendshipActions.removeFriend(item);
   },
   _onFriendsChange: function(){
@@ -41,8 +41,8 @@ var FriendsContainer = React.createClass({
     return (
       <div className="form-box">
         <p> {this.state.something?('Echoing - ' + this.state.something + ' -'):''} </p>
-        <AddItem addItemRef={this.handleAddFriend} addItemCustomTitleRef="Add Friend"/>
-        <FriendsList friendsNamesRef={this.state.friends} removeFriendRef={this.handleRemoveFriend} />
+        <AddItem addItemRef={this._handleAddFriend} addItemCustomTitleRef="Add Friend"/>
+        <FriendsList friendsNamesRef={this.state.friends} removeFriendRef={this._handleRemoveFriend} />
       </div>
     )
   }

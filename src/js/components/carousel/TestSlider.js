@@ -1,10 +1,28 @@
 var React = require('react'),
+    mediaStore = require('../../stores/mediaStore'),
     Slider = require('react-slick');
 
 var TestSlider = React.createClass({
+    getInitialState: function(){
+    return {
+      slides: mediaStore.getSlides()
+    }
+  },
+  componentDidMount: function(){
+    mediaStore.addChangeListener(this._onSlidesChange);
+  },
+  componentWillUnmount: function(){
+    mediaStore.removeChangeListener(this._onSlidesChange);
+  },
+  _onSlidesChange: function(){
+    this.setState({
+      slides: mediaStore.getSlides()
+    });
+  },
   render: function () {
     var sliderSettings = {
         // dots: true,
+        arrows: true,
         infinite: true,
         speed: 300,
         slidesToShow: 6,
@@ -21,6 +39,7 @@ var TestSlider = React.createClass({
         }, {
             breakpoint: 800,
             settings: {
+                arrows: true,
                 slidesToShow: 3,
                 slidesToScroll: 2,
                 dots: true,
@@ -32,6 +51,7 @@ var TestSlider = React.createClass({
         }, {
             breakpoint: 600,
             settings: {
+                arrows: true,
                 slidesToShow: 2,
                 slidesToScroll: 2,
                 dots: true,
@@ -41,6 +61,7 @@ var TestSlider = React.createClass({
         }, {
             breakpoint: 480,
             settings: {
+                arrows: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 dots: true,
@@ -50,15 +71,18 @@ var TestSlider = React.createClass({
             }
         }]
     };
+    var slides = this.state.slides.map(function(slide){
+      return (
+        <div dangerouslySetInnerHTML={{__html: slide}}></div>
+      )
+    }.bind(this));
+
     return (
-      <Slider {...sliderSettings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><iframe width="100%" src="//www.youtube.com/embed/ubGpDoyJvmI" frameborder="0" allowfullscreen></iframe></div>
-        <div><h3>6</h3></div>
-      </Slider>
+      <div className="form-box">
+        <Slider {...sliderSettings}>
+          {(slides.length > 0?slides:'No Slides.')}
+        </Slider>
+      </div>
     );
   }
 });

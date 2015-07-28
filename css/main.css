@@ -11,12 +11,14 @@
 }
 
 .form-box {
-	border: 3px solid pink;
+	border: 1px dashed pink;
+  padding: 5px;
 }
 
 #main-container {
-	width: 700px;
-	margin-left: 50px;
+	width: 95%;
+	padding-left: 50px;
+  margin-left: 20px;
 }
 
 /* Slider */
@@ -120,7 +122,7 @@
   font-style: normal;
 }
 /* Arrows */
-.slick-prev,
+./*slick-prev,
 .slick-next {
   position: absolute;
   display: block;
@@ -168,7 +170,7 @@
 }
 .slick-next:before {
   content: '\2192';
-}
+}*/
 
 /* Dots */
 .slick-slider {
@@ -235,7 +237,7 @@
   margin: auto;
 }
 
-.blue, html {
+.blue {
   background: #3498db;
   color: #fff;
 }

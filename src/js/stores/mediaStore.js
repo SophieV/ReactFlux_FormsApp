@@ -10,6 +10,7 @@ var objectAssign = require('react/lib/Object.assign'),
 var _store = {
   list: [{html:'<iframe width="100%" height="100%" src="//www.youtube.com/embed/ubGpDoyJvmI" frameborder="0" allowfullscreen></iframe>', isComponent:false},
         {html:'<iframe width="100%" src="//www.youtube.com/embed/ApN31QRqgIk" frameborder="0" allowfullscreen></iframe>',isComponent:false},
+        {html:<AddItem addItemCustomTitleRef="Injected Component 2"/>,isComponent:true},
         {html:'<img width="100%" src="http://ecx.images-amazon.com/images/I/817fRlqJ3PL._SL1500_.jpg"/>',isComponent:false},
         {html:'<img width="100%" src="http://finestayslovenia.com/wp-content/uploads/2014/11/triglav_national_park_02.jpg"/>',isComponent:false},
         {html:<AddItem addItemCustomTitleRef="Injected Component"/>,isComponent:true}]

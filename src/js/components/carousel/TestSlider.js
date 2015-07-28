@@ -33,6 +33,8 @@ var TestSlider = React.createClass({
             settings: {
                 slidesToShow: 6,
                 slidesToScroll: 1,
+                infinite: true,
+                autoplay: true,
                 // centerMode: true,
 
             }
@@ -45,6 +47,7 @@ var TestSlider = React.createClass({
                 slidesToScroll: 2,
                 dots: true,
                 infinite: true,
+                autoplay: true,
 
             }
 
@@ -57,6 +60,7 @@ var TestSlider = React.createClass({
                 slidesToScroll: 2,
                 dots: true,
                 infinite: true,
+                autoplay: true,
                 
             }
         }, {

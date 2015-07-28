@@ -12,12 +12,16 @@ var MainContainer = React.createClass({
     return (
       <div>
         <TestSlider name="myslider"/>
-        <div id="main-container">
-          <Navigation name="navbar"/>
-          <br/>
-          <br/>
-        	<SaySomethingArea name="child"/>
-          <MultiStepRegistrationForm/>
+        <div className="row">
+          <div className="col-12 col-sm-8 col-lg-8 main">
+            <div>
+              <Navigation name="navbar"/>
+            </div>
+          </div>
+          <div className="col-12 col-sm-4 col-lg-4 right">
+            <SaySomethingArea name="child"/>
+            <MultiStepRegistrationForm/>
+          </div>
         </div>
     </div>
     );

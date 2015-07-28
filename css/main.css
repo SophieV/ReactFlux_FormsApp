@@ -15,12 +15,6 @@
   padding: 5px;
 }
 
-#main-container {
-	width: 95%;
-	padding-left: 50px;
-  margin-left: 20px;
-}
-
 /* Slider */
 .slick-slider {
   position: relative;

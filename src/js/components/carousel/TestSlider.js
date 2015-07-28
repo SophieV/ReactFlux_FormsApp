@@ -1,5 +1,6 @@
 var React = require('react'),
     mediaStore = require('../../stores/mediaStore'),
+    AddItem = require('../friends-form/AddItem'),
     Slider = require('react-slick');
 
 var TestSlider = React.createClass({
@@ -71,16 +72,26 @@ var TestSlider = React.createClass({
             }
         }]
     };
-    var slides = this.state.slides.map(function(slide){
-      return (
-        <div dangerouslySetInnerHTML={{__html: slide}}></div>
-      )
+
+    var slides = this.state.slides.map(function(slideHtmlInput){
+      if (slideHtmlInput.isComponent)
+      {
+        return (
+          <div className="form-box">{slideHtmlInput.html}</div>
+        )
+      }
+      else
+      {
+        return (
+          <div dangerouslySetInnerHTML={{__html: slideHtmlInput.html}}></div>
+        )
+      }
     }.bind(this));
 
     return (
       <div className="form-box">
         <Slider {...sliderSettings}>
-          {(slides.length > 0?slides:'No Slides.')}
+          {slides}
         </Slider>
       </div>
     );

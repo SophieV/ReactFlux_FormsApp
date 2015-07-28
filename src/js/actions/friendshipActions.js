@@ -4,13 +4,13 @@ var actionsConstants = require('../constants/actionsConstants');
 var friendshipActions = {
   addFriend: function(item){
     AppDispatcher.handleAction({
-      actionType: actionsConstants.ADD_ITEM,
+      actionType: actionsConstants.ADD_FRIEND,
       data: item
     });
   },
   removeFriend: function(item){
     AppDispatcher.handleAction({
-      actionType: actionsConstants.REMOVE_ITEM,
+      actionType: actionsConstants.REMOVE_FRIEND,
       data: item
     })
   }

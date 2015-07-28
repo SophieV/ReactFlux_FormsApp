@@ -26,7 +26,7 @@ var Person = t.struct({
   subscribeNewsletter: t.Bool
 });
 
-var Children = t.struct({
+var ParentWithChildren = t.struct({
   person: Person,
   children: t.list(Person)
 });
@@ -62,7 +62,7 @@ var MyForm = React.createClass({
       <div className="form-box">
         <Form
           ref="form"
-          type={Children} options={options}
+          type={ParentWithChildren} options={options}
         />
         <Button onClick={this.save}>Save</Button>
         <DatePicker

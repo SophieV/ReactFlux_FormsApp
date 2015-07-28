@@ -1,5 +1,4 @@
 var React = require('react'),
-    FriendsArea = require('../components/friends-form/FriendsArea'),
     SaySomethingArea = require('../components/SaySomethingArea'),
     MyForm = require('../components/MyForm'),
     MultiStepRegistrationForm = require('../components/multi-step-form/MultiStepRegistrationForm'),
@@ -15,7 +14,6 @@ var MainContainer = React.createClass({
         <br/>
         <br/>
       	<SaySomethingArea name="child"/>
-        <FriendsArea name="friends"/>
         <MultiStepRegistrationForm/>
       </div>
     );

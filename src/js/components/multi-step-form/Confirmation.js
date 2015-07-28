@@ -13,8 +13,8 @@ var Confirmation = React.createClass({
         </ul>
         <ul className="form-fields">
           <li className="form-footer">
-            <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Submit Registration</button>
+            <button className="btn -default pull-left" onClick={this.props.previousStepRef}>Back</button>
+            <button className="btn -primary pull-right" onClick={this.props.submitRegistrationRef}>Submit Registration</button>
           </li>
         </ul>
       </div>

@@ -34,11 +34,11 @@ var friendshipStore = objectAssign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(payload){
   var action = payload.action;
   switch(action.actionType){
-    case actionsConstants.ADD_ITEM:
+    case actionsConstants.ADD_FRIEND:
       addFriend(action.data);
       friendshipStore.emit(eventsConstants.CHANGE_EVENT);
       break;
-    case actionsConstants.REMOVE_ITEM:
+    case actionsConstants.REMOVE_FRIEND:
       removeFriend(action.data);
       friendshipStore.emit(eventsConstants.CHANGE_EVENT);
       break;

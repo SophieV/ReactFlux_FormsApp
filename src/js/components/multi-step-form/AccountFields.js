@@ -1,11 +1,16 @@
 var React = require('react'),
     t = require('tcomb-form'),
-    Form = t.form.Form;
+    Form = t.form.Form,
+    Button = require('react-bootstrap/lib/Button');
+
+var IdentifiedEmail = t.subtype(t.Str, function (s) {
+  return s.indexOf('@') !== -1
+});
 
 var AccountInfo = t.struct({
   name: t.Str,
   password: t.Str,
-  email: t.Str
+  email: IdentifiedEmail
 });
 
 var initOptions = {
@@ -13,7 +18,8 @@ var initOptions = {
   auto: 'placeholders',
   fields: {
     email: {
-      placeholder: 'Enter your email'
+      placeholder: 'Enter your email',
+      error: "Invalid Email Format"
     },
     password: {
       password: true
@@ -34,7 +40,7 @@ var AccountFields = React.createClass({
       options: initOptions
     }
   },
-  nextStepRef: function(e) {
+  _nextStep: function(e) {
     e.preventDefault();
 
     var formData = this.refs.form.getValue();
@@ -60,13 +66,19 @@ var AccountFields = React.createClass({
   render: function() {
     return (
       <div>
-        <Form
-          ref="form"
-          type={AccountInfo}
-          options={this.state.options}
-          value={this.state.values}
-        />
-        <button className="btn -primary pull-right" onClick={this.nextStepRef}>Save &amp; Continue</button>
+        <ul className="form-fields">
+          <li>
+            <Form
+              ref="form"
+              type={AccountInfo}
+              options={this.state.options}
+              value={this.state.values}
+            />
+          </li>
+          <li className="form-footer">
+          <Button className="btn -primary pull-right" onClick={this._nextStep}>Save &amp; Continue</Button>
+          </li>
+        </ul>
       </div>
     )
   }

@@ -56,14 +56,14 @@ var RegistrationForm = React.createClass({
                               previousStepRef={this.previousStep}
                               saveValuesRef={this.saveValues} />
       case 2:
-        return <SurveyFields fieldValues={fieldValues}
-                             nextStep={this.nextStep}
-                             previousStep={this.previousStep}
-                             saveValues={this.saveValues} />
+        return <SurveyFields fieldValuesRef={fieldValues}
+                             nextStepRef={this.nextStep}
+                             previousStepRef={this.previousStep}
+                             saveValuesRef={this.saveValues} />
       case 3:
         return <Confirmation fieldValues={fieldValues}
-                             previousStep={this.previousStep}
-                             submitRegistration={this.submitRegistration} />
+                             previousStepRef={this.previousStep}
+                             submitRegistrationRef={this.submitRegistration} />
       case 4:
         return <Success fieldValues={fieldValues} />
     }

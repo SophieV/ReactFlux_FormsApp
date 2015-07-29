@@ -37,16 +37,15 @@ var Navigation = React.createClass({
     var username = authenticationService.getUsername();     
 
     return (
-        <div className="form-box">
-        <Navbar brand='ReactFlux Sandbox'>
-          <Nav>
-            <NavItemLink to={routesConstants.SOMETHING}>My Nested Generated Form Example</NavItemLink>
-            <NavItemLink to={routesConstants.HOME_PRIVATE}>My Private Area</NavItemLink>
-            { this.state.loggedIn ? <p className="navbar-text">Logged in as <b>{username}</b></p> : null }
-            { this.state.loggedIn ? <ButtonLink to={routesConstants.LOGOUT}>Log out</ButtonLink> : <ButtonLink to={routesConstants.LOGIN}>Log in</ButtonLink> }
-          </Nav>
-        </Navbar>
-        <RouteHandler/>
+        <div>
+          <Navbar brand='Trying React with Flux'>
+            <Nav>
+              <NavItemLink to={routesConstants.SOMETHING}>Nested Generated Form</NavItemLink>
+              <NavItemLink to={routesConstants.HOME_PRIVATE}>My Private Area</NavItemLink>
+              { this.state.loggedIn ? <li><p className="navbar-text">Logged in as <b>{username}</b></p></li> : null }
+              { this.state.loggedIn ? <li><ButtonLink to={routesConstants.LOGOUT}>Log out</ButtonLink></li> : <Login/> }
+            </Nav>
+          </Navbar>
         </div>
     );
   }

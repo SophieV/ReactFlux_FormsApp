@@ -25,6 +25,7 @@ var SaySomething = React.createClass({
   render: function(){
     return (
       <div className="form-box">
+      <h3>See how other components (check the Private Area) may listen to this data</h3>
        <p> {(this.state.something?('I said -' + this.state.something + ' -'):'')}</p>
         <br />
         Type something... <input type="text" value={this.state.something} onChange={this.handleUpdateSomething} />

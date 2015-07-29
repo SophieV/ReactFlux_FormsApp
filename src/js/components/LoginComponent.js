@@ -84,13 +84,13 @@ var LoginComponent = React.createClass({
     }
   },
 
-  // <Button onClick={this.close}>Close</Button>
   render: function () {
     var errors = this.state.error ? <p>Bad login information. Try again !</p> : '';
 
+    // needs to be returned as an LI tag to be aligned in the bootstrap navbar
     return (
-      <div className="form-box">
-        <Button bsStyle='primary' bsSize='large' onClick={this.open}>Log In</Button>
+      <li>
+        <Button className="auth-btn" onClick={this.open}>Log In</Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>Hey, Do We Know You ?</Modal.Title>
@@ -106,7 +106,7 @@ var LoginComponent = React.createClass({
             <Button onClick={this.save}>Log In</Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </li>
     );
   }
 });

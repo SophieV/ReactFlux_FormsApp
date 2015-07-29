@@ -76,6 +76,7 @@ var RegistrationForm = React.createClass({
 
     return (
       <main className="form-box">
+        <h3>This is a demo form wizard</h3>
         <span className="progress-step">Step {this.state.step}</span>
         <progress className="progress" style={style}></progress>
         {this.showStep()}

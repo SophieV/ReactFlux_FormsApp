@@ -40,7 +40,9 @@ var FriendsContainer = React.createClass({
   render: function(){
     return (
       <div className="form-box">
+        <h3>Here you can see what you've entered in the Sidebar</h3>
         <p> {this.state.something?('Echoing - ' + this.state.something + ' -'):''} </p>
+        <h3>Here you can manage a list of Items</h3>
         <AddItem addItemRef={this._handleAddFriend} addItemCustomTitleRef="Add Friend"/>
         <FriendsList friendsNamesRef={this.state.friends} removeFriendRef={this._handleRemoveFriend} />
       </div>

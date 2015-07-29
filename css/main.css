@@ -15,6 +15,15 @@
   padding: 5px;
 }
 
+.auth-btn {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.sidebar {
+  background: #ff9;
+}
+
 a.active {
   text-decoration: none;
   border: 1px solid #888;

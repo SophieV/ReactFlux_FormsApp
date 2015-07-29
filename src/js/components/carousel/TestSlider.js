@@ -25,9 +25,10 @@ var TestSlider = React.createClass({
         // dots: true,
         arrows: true,
         infinite: true,
+        dots: true,
         speed: 300,
-        slidesToShow: 6,
-        slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         responsive: [{
             breakpoint: 1024,
             settings: {
@@ -81,7 +82,7 @@ var TestSlider = React.createClass({
       if (slideHtmlInput.isComponent)
       {
         return (
-          <div className="form-box">{slideHtmlInput.html}</div>
+          <div>{slideHtmlInput.html}</div>
         )
       }
       else
@@ -93,7 +94,7 @@ var TestSlider = React.createClass({
     }.bind(this));
 
     return (
-      <div className="form-box">
+      <div>
         <Slider {...sliderSettings}>
           {slides}
         </Slider>

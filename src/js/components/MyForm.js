@@ -31,13 +31,23 @@ var ParentWithChildren = t.struct({
   children: t.list(Person)
 });
 
-// only works with simple form, not list - no "children"
 var options = {
   fields: {
-    children: {
+    person: {
+      fields: {
         gender: {
           factory: t.form.Radio
         }
+      }
+    },
+    children: {
+      item: {
+        fields: {
+          gender: {
+              factory: t.form.Radio
+          }
+        }
+      }
     }
   }
 };

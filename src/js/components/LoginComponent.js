@@ -84,6 +84,7 @@ var LoginComponent = React.createClass({
     }
   },
 
+  // <Button onClick={this.close}>Close</Button>
   render: function () {
     var errors = this.state.error ? <p>Bad login information. Try again !</p> : '';
 
@@ -99,11 +100,10 @@ var LoginComponent = React.createClass({
               ref="form"
               type={UserCredentials} options={options}
             />
-            <Button onClick={this.save}>Log In</Button>
             {errors}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
+            <Button onClick={this.save}>Log In</Button>
           </Modal.Footer>
         </Modal>
       </div>

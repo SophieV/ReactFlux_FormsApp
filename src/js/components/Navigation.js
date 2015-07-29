@@ -6,7 +6,8 @@ var React = require('react'),
     Login = require('./LoginComponent'),
     routesConstants = require('../constants/routesConstants'),
     authenticationService = require('../services/authenticationService'),
-    Button = require('react-bootstrap/lib/Button');
+    Button = require('react-bootstrap/lib/Button'),
+    HighlightedLink = require('./HighlightedLink');
 
 var Navigation = React.createClass({
 
@@ -31,15 +32,15 @@ var Navigation = React.createClass({
     var username = authenticationService.getUsername();
 
     var displayLoginOrLogout = this.state.loggedIn ?
-      <div>Hey, <b>{username}</b> ! <Link to={routesConstants.LOGOUT}><Button bsStyle='primary' bsSize='large'>Log out</Button></Link></div> :
+      <div>Hey, <b>{username}</b> ! <HighlightedLink to={routesConstants.LOGOUT}><Button bsStyle='primary' bsSize='large'>Log out</Button></HighlightedLink></div> :
       <Login/>;
 
     return (
         <div className="form-box">
           <ul>
             <li>{displayLoginOrLogout}</li>
-            <li><Link to={routesConstants.SOMETHING}>My Other Area</Link></li>
-            <li><Link to={routesConstants.HOME_PRIVATE}>My Private Area</Link></li>
+            <li><HighlightedLink to={routesConstants.SOMETHING}>My Other Area</HighlightedLink></li>
+            <li><HighlightedLink to={routesConstants.HOME_PRIVATE}>My Private Area</HighlightedLink></li>
           </ul>
           <RouteHandler/>
         </div>

@@ -12,7 +12,7 @@ var HighlightedLink = React.createClass({
     var link = (
       <Link {...this.props} />
     );
-    return <div className={className}>{link}</div>;
+    return <span className={className}>{link}</span>;
   }
 
 });

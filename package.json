@@ -30,6 +30,7 @@
     "react-bootstrap-datetimepicker": "0.0.18",
     "react-date-picker": "^2.1.9",
     "react-router": "^0.13.3",
+    "react-router-bootstrap": "^0.18.0",
     "react-slick": "^0.6.6",
     "tcomb-form": "^0.6.3",
     "tcomb-validation": "^2.0.0",

@@ -5,7 +5,7 @@ var objectAssign = require('react/lib/Object.assign'),
     // hence react will create the component here
     // this code should be refactored to decouple the store and the UI ; have a factory to create items based on type needed
     AddItem = require('../components/friends-form/AddItem'),
-    FriendsArea = require('../components/friends-form/FriendsArea'),
+    EchoLike = require('../components/EchoLike'),
     React = require('react');
 
 var _store = {
@@ -14,7 +14,7 @@ var _store = {
         {html:<AddItem addItemCustomTitleRef="Injected Component 2"/>,isComponent:true},
         {html:'<img width="100%" src="http://ecx.images-amazon.com/images/I/817fRlqJ3PL._SL1500_.jpg"/>',isComponent:false},
         {html:'<img width="100%" src="http://finestayslovenia.com/wp-content/uploads/2014/11/triglav_national_park_02.jpg"/>',isComponent:false},
-        {html:<FriendsArea name='embeddedfriends'/>,isComponent:true}]
+        {html:<EchoLike name='echolike'/>,isComponent:true}]
 };
 
 var mediaStore = objectAssign({}, EventEmitter.prototype, {

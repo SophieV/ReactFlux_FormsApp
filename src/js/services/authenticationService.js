@@ -1,19 +1,19 @@
 var authenticationService = {
-  login: function (email, pass, cb) {
-    cb = arguments[arguments.length - 1];
+  login: function (email, password, callback) {
+    callback = arguments[arguments.length - 1];
     if (localStorage.token) {
-      if (cb) cb(true);
+      if (callback) callback(true);
       this.onChange(true);
       return;
     }
-    pretendRequest(email, pass, function (res) {
-      if (res.authenticated) {
-        localStorage.token = res.token;
-        localStorage.username = res.username;
-        if (cb) cb(true);
+    pretendRequest(email, password, function (authResult) {
+      if (authResult.authenticated) {
+        localStorage.token = authResult.token;
+        localStorage.username = authResult.username;
+        if (callback) callback(true);
         this.onChange(true);
       } else {
-        if (cb) cb(false);
+        if (callback) callback(false);
         this.onChange(false);
       }
     }.bind(this));
@@ -24,9 +24,9 @@ var authenticationService = {
   getUsername: function() {
     return localStorage.username;
   },
-  logout: function (cb) {
+  logout: function (callback) {
     delete localStorage.token;
-    if (cb) cb();
+    if (callback) callback();
     this.onChange(false);
   },
   loggedIn: function () {
@@ -35,16 +35,17 @@ var authenticationService = {
   onChange: function () {}
 };
 
-function pretendRequest(email, pass, cb) {
+function pretendRequest(email, password, callback) {
   setTimeout(function () {
-    if (email === 'joe@example.com' && pass === 'password1') {
-      cb({
+    if (email === 'a@b.c' && password === 'abc') {
+      callback({
         authenticated: true,
+        // generate a random JWT instead of requesting from API
         token: Math.random().toString(36).substring(7),
         username: email
       });
     } else {
-      cb({authenticated: false});
+      callback({authenticated: false});
     }
   }, 0);
 }

@@ -20,10 +20,6 @@
   padding-bottom: 15px;
 }
 
-.sidebar {
-  background: #ff9;
-}
-
 a.active {
   text-decoration: none;
   border: 1px solid #888;

@@ -21,14 +21,14 @@ var options = {
   fields: {
       username: {
         config: {
-          addonBefore: 'joe@example.com',
+          addonBefore: 'a@b.c',
           placeholder: 'Enter your email'
         }
       },
       password: {
         type: 'password',
         config: {
-          addonBefore: 'password1'
+          addonBefore: 'abc'
         }
       }
   }
@@ -37,10 +37,6 @@ var options = {
 var LoginComponent = React.createClass({
 
   mixins: [Router.Navigation, RedirectWhenLoggedIn],
-
-  statics: {
-    attemptedTransition: null
-  },
 
   getInitialState: function () {
     return {
@@ -63,24 +59,21 @@ var LoginComponent = React.createClass({
     this.setState({ showModal: true });
   },
 
-  save: function() {
+  _logIn: function() {
     var value = this.refs.form.getValue();
 
+    // TODO
+    // in order to decouple the routing, and also provide dynamic refresh
+    // a LoginStore would propagate the changes to any component listening to it
     if (value && value.username && value.password) {
-      console.log(value);
-
       authenticationService.login(value.username, value.password, function (loggedIn) {
-      if (!loggedIn)
-        return this.setState({ error: true });
-      if (LoginComponent.attemptedTransition) {
-        var transition = LoginComponent.attemptedTransition;
-        LoginComponent.attemptedTransition = null;
-        transition.retry();
-      } else {
-        this.replaceWith(routesConstants.HOME_PRIVATE); // jump after login
-      }
-    }.bind(this));
-
+        // here's the callback triggered by the auth service
+        if (!loggedIn) {
+          return this.setState({ error: true });
+        } else {
+          this.replaceWith(routesConstants.HOME_PRIVATE); // jump after successful login
+        }
+      }.bind(this));
     }
   },
 
@@ -103,7 +96,7 @@ var LoginComponent = React.createClass({
             {errors}
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.save}>Log In</Button>
+            <Button onClick={this._logIn}>Log In</Button>
           </Modal.Footer>
         </Modal>
       </li>

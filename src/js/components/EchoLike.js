@@ -31,7 +31,7 @@ var EchoLike = React.createClass({
       <div className="form-box">
         <h3>Here you can see what you've entered in the Sidebar</h3>
         <p> {this.state.something?('Echoing - ' + this.state.something + ' -'):''} </p>
-        <p>{this.state.liked?'Liked':null}</p><Button onClick={this._like} className={this.state.liked?'disabled':null}>Like</Button>
+        <p>{this.state.liked?'Liked':null}</p><Button onClick={this._like} className={this.state.liked?'hidden':null}>Like</Button>
       </div>
     )
   }

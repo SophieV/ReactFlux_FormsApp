@@ -9,6 +9,7 @@ var streamify = require('gulp-streamify');
 
 var path = {
   HTML: 'src/index.html',
+  NOT_MINIFIED: 'build.js',
   MINIFIED_OUT: 'build.min.js',
   OUT: 'build.js',
   DEST: 'dist',
@@ -55,7 +56,7 @@ gulp.task('build', function(){
     .pipe(gulp.dest(path.DEST_BUILD));
 });
 
-gulp.task('replaceHTML', function(){
+gulp.task('replaceHTMLBundlePath', function(){
   gulp.src(path.HTML)
     .pipe(htmlreplace({
       'js': 'build/' + path.MINIFIED_OUT
@@ -63,6 +64,15 @@ gulp.task('replaceHTML', function(){
     .pipe(gulp.dest(path.DEST));
 });
 
-gulp.task('production', ['replaceHTML', 'build']);
+// TODO move so that everytime HTML file is modified, the path is re-replaced
+gulp.task('replaceHTMLBundlePathDev', function(){
+  gulp.src(path.HTML)
+    .pipe(htmlreplace({
+      'js': 'src/' + path.NOT_MINIFIED
+    }))
+    .pipe(gulp.dest(path.DEST));
+});
 
-gulp.task('default', ['watch']);
+gulp.task('production', ['replaceHTMLBundlePath', 'build']);
+
+gulp.task('default', ['replaceHTMLBundlePathDev', 'watch']);

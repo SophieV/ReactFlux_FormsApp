@@ -40,4 +40,14 @@ describe("Echo Like", function()
     expect(instance.state.liked).toBeDefined();
     expect(instance.state.liked).toBe(true);
   });
+
+  it("should not show a button to click if the state is liked", function(){
+    var buttonNode = React.findDOMNode(instance.refs.likeButton);
+    TestUtils.Simulate.click(buttonNode);
+    expect(instance.state.liked).toBeDefined();
+    expect(instance.state.liked).toBe(true);
+    var buttonNodeAfterClick = React.findDOMNode(instance.refs.likeButton);
+    expect(buttonNodeAfterClick).toBeDefined();
+    expect(buttonNodeAfterClick.className).toContain("hidden");
+  });
 });

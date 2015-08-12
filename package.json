@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "dev-ip": "^1.0.1",
+    "gulp-shell": "^0.4.0",
     "jasmine-core": "^2.2.0",
     "jasmine-spec-reporter": "^2.1.0",
     "karma": "^0.12.31",
@@ -21,8 +23,8 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-safari-launcher": "^0.1.1",
     "karma-spec-reporter": "0.0.18",
-    "gulp-shell": "^0.4.0",
-    "dev-ip": "^1.0.1",
+    "phantomjs-polyfill": "0.0.1",
+    "reactify": "^1.1.1",
     "stringify": "^3.1.0"
   },
   "dependencies": {

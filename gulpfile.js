@@ -6,6 +6,10 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
 var streamify = require('gulp-streamify');
+var shell = require('gulp-shell');
+var karma = require('karma').server;
+var getIp = require('dev-ip');
+var ip = getIp();
 
 var path = {
   HTML: 'src/index.html',
@@ -76,3 +80,24 @@ gulp.task('replaceHTMLBundlePathDev', function(){
 gulp.task('production', ['replaceHTMLBundlePath', 'build']);
 
 gulp.task('default', ['replaceHTMLBundlePathDev', 'watch']);
+
+// How to Run Jasmine Tests :
+//
+// 1. Open a new tab and run task 'tdd' = karma is configured to run all the other Browsers (Chrome, Firefox, Safari, PhantomJS).
+//
+// 2. Start task 'start-karma-IE' =  Attach IE to karma. The TDD will rerun and the console info should now state "IE x.x.x [...] : Executed y of y SUCCESS".
+// Note : the path is hard coded. It's expecting Parallels on OSX. If you are running Windows, you only need task 1 and adding "IE" as a browser in the karma.config.js file.
+//
+// 3. Optional, you can use the IE debugger, the last icon (Emulation) to change the IE version used. As you select a new value in the "document mode", 1. will refresh. Please note that using v < 9.0 will bug and you need to restart the IE browser connection to karma/redo 2.
+
+gulp.task('start-karma-IE',[], shell.task([
+  process.env.HOME + "/'Applications\ \(Parallels\)'/'\{66114fb8-5a39-4936-acd0-bc1347962d4b\}\ Applications.localized/Internet\ Explorer.app'/Contents/MacOS/WinAppHelper http://" + ip[0] + ":9876/?id=51321282/context.html"
+  // if undefined, change it to your IP using ifconfig
+]));
+
+// Watch for file changes and re-run tests.
+gulp.task('tdd', [], function(done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js'
+  }, done);
+});

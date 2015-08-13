@@ -1,13 +1,15 @@
 // import dependencies as needed
-var React = require('react/addons');
+var React;
 
-var TestUtils = React.addons.TestUtils;
+var _ = require('underscore');
 
-var Simulate = TestUtils.Simulate;
+var TestUtils;
 
-var TestSlider = require('../../../../src/js/components/carousel/TestSlider');
+var Simulate;
 
-var EchoLike = require('../../../../src/js/components/EchoLike');
+var TestSlider;
+
+var EchoLike;
 
 // run tests
 describe("Carousel Slider", function() 
@@ -15,8 +17,17 @@ describe("Carousel Slider", function()
   var instance;
 
   beforeEach(function() {
+    // fix PhantomJS bug by moving from global to beforeEach
+    React  = require('react/addons');
+    TestUtils = React.addons.TestUtils;
+    Simulate = TestUtils.Simulate;
+
+    TestSlider = require('../../../../src/js/components/carousel/TestSlider');
+    EchoLike = require('../../../../src/js/components/EchoLike');
+
     // This component does not use any lifecycle methods or broadcast
     // events so it does not require rendering to the DOM to be tested.
+    instance = null;
     instance = TestUtils.renderIntoDocument(<TestSlider />);
   });
 
@@ -29,24 +40,38 @@ describe("Carousel Slider", function()
     expect(instance.state.slides.length).toBe(6);
   });
 
-  describe("should allow to change the status of its EchoLike slide component", function() {
-    var childInstance;
-    var childType;
-
-    beforeEach(function() {
-      // This component does not use any lifecycle methods or broadcast
-      // events so it does not require rendering to the DOM to be tested.
-      childType = React.renderToStaticMarkup(<EchoLike />);
-
-      // childInstance = TestUtils.findRenderedDOMComponentWithTag(instance.props.children, 'EchoLike');
+  it("should contain 1 EchoLike component", function(){
+    var instanceEchoLike = TestUtils.scryRenderedComponentsWithType(instance, EchoLike);
+    // returns duplicated. why ?
+    expect(instanceEchoLike[0].props.name).toBe(instanceEchoLike[1].props.name);
+    var uniqueEchoLike = _.uniq(instanceEchoLike, function(echoLikeSingle){
+      return echoLikeSingle.props.name;
     });
+    expect(uniqueEchoLike.length).toBe(1);
+  });
 
-    it("should render", function(){
-      var parentMarkup = React.renderToStaticMarkup(<TestSlider />);
-      expect(parentMarkup).toContain(childType);
+  // describe("should allow to change the status of its EchoLike slide component", function() {
+  //   var childInstance;
+  //   var childType;
 
-      // expect(childInstance).toBeDefined();
-    });
+  //   beforeEach(function() {
+  //     // fix PhantomJS bug by moving from global to beforeEach
+  //     React  = require('react/addons');
+  //     EchoLike = require('../../../../src/js/components/EchoLike');
+
+  //     // This component does not use any lifecycle methods or broadcast
+  //     // events so it does not require rendering to the DOM to be tested.
+  //     childType = React.renderToStaticMarkup(<EchoLike />);
+
+  //     // childInstance = TestUtils.findRenderedDOMComponentWithTag(instance.props.children, 'EchoLike');
+  //   });
+
+  //   it("should render", function(){
+  //     var parentMarkup = React.renderToStaticMarkup(<TestSlider />);
+  //     expect(parentMarkup).toContain(childType);
+
+  //     // expect(childInstance).toBeDefined();
+  //   });
 
     // it("should be initialized as unliked state", function(){
     //   expect(childInstance.state.liked).toBeDefined();
@@ -67,5 +92,5 @@ describe("Carousel Slider", function()
     //   expect(instance.state.liked).toBe(true);
     // });
 
-  });
+  // });
 });

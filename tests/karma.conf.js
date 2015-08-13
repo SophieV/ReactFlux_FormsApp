@@ -9,7 +9,8 @@ module.exports = function(config) {
     preprocessors: {
       'scripts/spec/suites/*Spec.js': ['browserify']
     },
-    browsers: ['Chrome'],//,'Firefox','PhantomJS','Safari'],
+    // not working in PhantomJS ? even with shims
+    browsers: ['Firefox'],//,'Chrome','Firefox','PhantomJS','Safari'],
     reporters: ['spec', 'failed'],
     browserify: {
       transform: [ 'reactify' ],

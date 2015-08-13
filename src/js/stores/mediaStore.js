@@ -14,7 +14,7 @@ var _store = {
         {html:<AddItem addItemCustomTitleRef="Injected Component 2"/>,isComponent:true},
         {html:'<img width="100%" src="http://ecx.images-amazon.com/images/I/817fRlqJ3PL._SL1500_.jpg"/>',isComponent:false},
         {html:'<img width="100%" src="http://finestayslovenia.com/wp-content/uploads/2014/11/triglav_national_park_02.jpg"/>',isComponent:false},
-        {html:<EchoLike name='echolike'/>,isComponent:true}]
+        {html:<EchoLike name='echolikeEmbedded'/>,isComponent:true}]
 };
 
 var mediaStore = objectAssign({}, EventEmitter.prototype, {

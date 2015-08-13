@@ -1,9 +1,9 @@
 // import dependencies as needed
-var React = require('react/addons');
+var React;
 
-var TestUtils = React.addons.TestUtils;
+var TestUtils;
 
-var Simulate = TestUtils.Simulate;
+var Simulate;
 
 var EchoLike = require('../../../../src/js/components/EchoLike');
 
@@ -13,6 +13,10 @@ describe("Echo Like", function()
   var instance;
 
   beforeEach(function() {
+    React = require('react/addons');
+    TestUtils = React.addons.TestUtils;
+    Simulate = TestUtils.Simulate;
+    
     // This component does not use any lifecycle methods or broadcast
     // events so it does not require rendering to the DOM to be tested.
     instance = TestUtils.renderIntoDocument(<EchoLike />);

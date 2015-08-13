@@ -51,7 +51,8 @@ var RegistrationForm = React.createClass({
   showStep: function() {
     switch (this.state.step) {
       case 1:
-        return <AccountFields fieldValuesRef={fieldValues}
+        return <AccountFields ref="accountFields"
+                              fieldValuesRef={fieldValues}
                               nextStepRef={this.nextStep}
                               previousStepRef={this.previousStep}
                               saveValuesRef={this.saveValues} />

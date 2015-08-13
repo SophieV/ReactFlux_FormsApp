@@ -25,7 +25,7 @@ var TestSlider = React.createClass({
         // dots: true,
         arrows: true,
         infinite: true,
-        dots: true,
+        // dots: true,
         speed: 300,
         slidesToShow: 3,
         slidesToScroll: 3,
